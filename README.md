@@ -1,7 +1,7 @@
 # Cake.AWS.ElasticLoadBalancing
 Cake Build addon for configuring Amazon Elastic Load Balancers
 
-[![Build status](https://ci.appveyor.com/api/projects/status/bg004fntkfkjji83?svg=true)](https://ci.appveyor.com/project/PhillipSharpe/cake-services)
+[![Build status](https://ci.appveyor.com/api/projects/status/w86dpcm8320m79ru?svg=true)](https://ci.appveyor.com/project/PhillipSharpe/cake-aws-elasticloadbalancing)
 
 [![cakebuild.net](https://img.shields.io/badge/WWW-cakebuild.net-blue.svg)](http://cakebuild.net/)
 
