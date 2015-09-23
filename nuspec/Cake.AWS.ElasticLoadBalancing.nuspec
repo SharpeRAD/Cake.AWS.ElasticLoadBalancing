@@ -18,15 +18,13 @@
 
       <dependencies>
          <dependency id="Cake.Core" />
-         <dependency id="AWSSDK.Core" />
-         <dependency id="AWSSDK.ELB" />
       </dependencies>
    </metadata>
 
    <files>
       <file src="AWSSDK.Core.dll" target="lib/net45" />
-      <file src="AWSSDK.ELB.dll" target="lib/net45" />
-      <file src="Cake.AWS.ELB.dll" target="lib/net45" />
+      <file src="AWSSDK.ElasticLoadBalancing.dll" target="lib/net45" />
+      <file src="Cake.AWS.ElasticLoadBalancing.dll" target="lib/net45" />
       <file src="LICENSE" />
    </files>
 </package>
