@@ -1,3 +1,7 @@
+### New in 0.0.4 (Released 2015/09/28)
+* Add Namespace Categories
+* Remove Cake.Core reference
+
 ### New in 0.0.3 (Released 2015/09/28)
 * Added current instance aliase
 * Remove duplicate settings
