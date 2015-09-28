@@ -1,11 +1,10 @@
 ﻿#region Using Statements
     using System;
     using System.Collections.Generic;
+    using System.Net;
 
     using Cake.Core;
-    using Cake.Core.IO;
     using Cake.Core.Diagnostics;
-    using Cake.Core.Annotations;
 
     using Amazon.ElasticLoadBalancing;
     using Amazon.ElasticLoadBalancing.Model;
@@ -90,7 +89,7 @@ namespace Cake.AWS.ElasticLoadBalancing
             /// <param name="loadBalancer">The name associated with the load balancer.</param>
             /// <param name="instances">A list of instance IDs that should be registered with the load balancer.</param>
             /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
-            public void RegisterInstances(string loadBalancer, IList<string> instances, LoadBalancingSettings settings)
+            public bool RegisterInstances(string loadBalancer, IList<string> instances, LoadBalancingSettings settings)
             {
                 AmazonElasticLoadBalancingClient client = this.CreateClient(settings);
                 RegisterInstancesWithLoadBalancerRequest request = new RegisterInstancesWithLoadBalancerRequest();
@@ -102,7 +101,18 @@ namespace Cake.AWS.ElasticLoadBalancing
                     request.Instances.Add(new Instance(instance));
                 }
 
-                client.RegisterInstancesWithLoadBalancer(request);
+                RegisterInstancesWithLoadBalancerResponse response = client.RegisterInstancesWithLoadBalancer(request);
+
+                if (response.HttpStatusCode == HttpStatusCode.OK)
+                {
+                    _Log.Verbose("Successfully registered instances '{0}'", string.Join(",", instances));
+                    return true;
+                }
+                else
+                {
+                    _Log.Error("Failed to registere instances '{0}'", string.Join(",", instances));
+                    return false;
+                }
             }
 
             /// <summary>
@@ -111,7 +121,7 @@ namespace Cake.AWS.ElasticLoadBalancing
             /// <param name="loadBalancer">The name associated with the load balancer.</param>
             /// <param name="instances">A list of instance IDs that should be deregistered with the load balancer.</param>
             /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
-            public void DeregisterInstances(string loadBalancer, IList<string> instances, LoadBalancingSettings settings)
+            public bool DeregisterInstances(string loadBalancer, IList<string> instances, LoadBalancingSettings settings)
             {
                 AmazonElasticLoadBalancingClient client = this.CreateClient(settings);
                 DeregisterInstancesFromLoadBalancerRequest request = new DeregisterInstancesFromLoadBalancerRequest();
@@ -123,7 +133,18 @@ namespace Cake.AWS.ElasticLoadBalancing
                     request.Instances.Add(new Instance(instance));
                 }
 
-                client.DeregisterInstancesFromLoadBalancer(request);
+                DeregisterInstancesFromLoadBalancerResponse response = client.DeregisterInstancesFromLoadBalancer(request);
+
+                if (response.HttpStatusCode == HttpStatusCode.OK)
+                {
+                    _Log.Verbose("Successfully deregistered instances '{0}'", string.Join(",", instances));
+                    return true;
+                }
+                else
+                {
+                    _Log.Error("Failed to deregister instances '{0}'", string.Join(",", instances));
+                    return false;
+                }
             }
         #endregion
     }

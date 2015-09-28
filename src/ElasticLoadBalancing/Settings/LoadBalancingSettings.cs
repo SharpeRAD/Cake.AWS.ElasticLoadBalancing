@@ -30,18 +30,6 @@ namespace Cake.AWS.ElasticLoadBalancing
             /// The endpoints available to AWS clients.
             /// </summary>
             public RegionEndpoint Region { get; set; }
-
-            /// <summary>
-            /// Gets or sets the name of the load balancer.
-            /// </summary>
-            public string Name { get; set; }
-
-
-
-            /// <summary>
-            /// The IDs of the instances assosiated with the load balancer.
-            /// </summary>
-            public IList<string> Instances { get; set; }
         #endregion
     }
 }

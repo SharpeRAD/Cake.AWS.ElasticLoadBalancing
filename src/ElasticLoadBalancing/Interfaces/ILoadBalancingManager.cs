@@ -22,7 +22,7 @@ namespace Cake.AWS.ElasticLoadBalancing
             /// <param name="loadBalancer">The name associated with the load balancer.</param>
             /// <param name="instances">A list of instance IDs that should be registered with the load balancer.</param>
             /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
-            void RegisterInstances(string loadBalancer, IList<string> instances, LoadBalancingSettings settings);
+            bool RegisterInstances(string loadBalancer, IList<string> instances, LoadBalancingSettings settings);
 
             /// <summary>
             /// Removes instances from the load balancer. Once the instance is deregistered, it will stop receiving traffic from the load balancer. 
@@ -30,7 +30,7 @@ namespace Cake.AWS.ElasticLoadBalancing
             /// <param name="loadBalancer">The name associated with the load balancer.</param>
             /// <param name="instances">A list of instance IDs that should be deregistered with the load balancer.</param>
             /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
-            void DeregisterInstances(string loadBalancer, IList<string> instances, LoadBalancingSettings settings);
+            bool DeregisterInstances(string loadBalancer, IList<string> instances, LoadBalancingSettings settings);
         #endregion
     }
 }
