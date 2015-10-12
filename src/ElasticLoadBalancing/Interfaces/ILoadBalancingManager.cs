@@ -12,7 +12,7 @@ namespace Cake.AWS.ElasticLoadBalancing
     /// </summary>
     public interface ILoadBalancingManager
     {
-        #region Functions (2)
+        #region Functions (4)
             /// <summary>
             /// Adds new instances to the load balancer.
             /// Once the instance is registered, it starts receiving traffic and requests from the load balancer. 
@@ -31,6 +31,29 @@ namespace Cake.AWS.ElasticLoadBalancing
             /// <param name="instances">A list of instance IDs that should be deregistered with the load balancer.</param>
             /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
             bool DeregisterInstances(string loadBalancer, IList<string> instances, LoadBalancingSettings settings);
+
+
+
+            /// <summary>
+            ///  Adds the specified Availability Zones to the set of Availability Zones for the specified load balancer.
+            ///  The load balancer evenly distributes requests across all its registered Availability Zones that contain instances.
+            /// </summary>
+            /// <param name="loadBalancer">The name associated with the load balancer.</param>
+            /// <param name="zones">The Availability Zones to add to the load balancer.</param>
+            /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
+            bool EnableAvailabilityZones(string loadBalancer, IList<string> zones, LoadBalancingSettings settings);
+
+
+            /// <summary>
+            /// Removes the specified Availability Zones from the set of Availability Zones for the specified load balancer.
+            /// There must be at least one Availability Zone registered with a load balancer at all times. After an Availability Zone is removed, 
+            /// all instances registered with the load balancer that are in the removed Availability Zone go into the OutOfService state. 
+            /// Then, the load balancer attempts to equally balance the traffic among its remaining Availability Zones.
+            /// </summary>
+            /// <param name="loadBalancer">The name associated with the load balancer.</param>
+            /// <param name="zones">The Availability Zones to remove from the load balancer.</param>
+            /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
+            bool DisableAvailabilityZones(string loadBalancer, IList<string> zones, LoadBalancingSettings settings);
         #endregion
     }
 }

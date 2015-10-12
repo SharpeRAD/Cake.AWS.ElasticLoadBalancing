@@ -19,6 +19,7 @@
 
    <files>
       <file src="AWSSDK.Core.dll" target="lib/net45" />
+      <file src="AWSSDK.EC2.dll" target="lib/net45" />
       <file src="AWSSDK.ElasticLoadBalancing.dll" target="lib/net45" />
       <file src="Cake.AWS.ElasticLoadBalancing.dll" target="lib/net45" />
       <file src="LICENSE" />

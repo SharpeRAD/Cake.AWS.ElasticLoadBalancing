@@ -146,6 +146,76 @@ namespace Cake.AWS.ElasticLoadBalancing
                     return false;
                 }
             }
+
+
+
+            /// <summary>
+            ///  Adds the specified Availability Zones to the set of Availability Zones for the specified load balancer.
+            ///  The load balancer evenly distributes requests across all its registered Availability Zones that contain instances.
+            /// </summary>
+            /// <param name="loadBalancer">The name associated with the load balancer.</param>
+            /// <param name="zones">The Availability Zones to add to the load balancer.</param>
+            /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
+            public bool EnableAvailabilityZones(string loadBalancer, IList<string> zones, LoadBalancingSettings settings)
+            {
+                AmazonElasticLoadBalancingClient client = this.CreateClient(settings);
+                EnableAvailabilityZonesForLoadBalancerRequest request = new EnableAvailabilityZonesForLoadBalancerRequest();
+            
+                request.LoadBalancerName = loadBalancer;
+
+                foreach (string zone in zones)
+                {
+                    request.AvailabilityZones.Add(zone);
+                }
+
+                EnableAvailabilityZonesForLoadBalancerResponse response = client.EnableAvailabilityZonesForLoadBalancer(request);
+
+                if (response.HttpStatusCode == HttpStatusCode.OK)
+                {
+                    _Log.Verbose("Successfully enabled zones '{0}'", string.Join(",", zones));
+                    return true;
+                }
+                else
+                {
+                    _Log.Error("Failed to enabled zones '{0}'", string.Join(",", zones));
+                    return false;
+                }
+            }
+
+            /// <summary>
+            /// Removes the specified Availability Zones from the set of Availability Zones for the specified load balancer.
+            /// There must be at least one Availability Zone registered with a load balancer at all times. After an Availability Zone is removed, 
+            /// all instances registered with the load balancer that are in the removed Availability Zone go into the OutOfService state. 
+            /// Then, the load balancer attempts to equally balance the traffic among its remaining Availability Zones.
+            /// </summary>
+            /// <param name="loadBalancer">The name associated with the load balancer.</param>
+            /// <param name="zones">The Availability Zones to remove from the load balancer.</param>
+            /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
+            public bool DisableAvailabilityZones(string loadBalancer, IList<string> zones, LoadBalancingSettings settings)
+            {
+                AmazonElasticLoadBalancingClient client = this.CreateClient(settings);
+                DisableAvailabilityZonesForLoadBalancerRequest request = new DisableAvailabilityZonesForLoadBalancerRequest();
+
+                request.LoadBalancerName = loadBalancer;
+
+                foreach (string zone in zones)
+                {
+                    request.AvailabilityZones.Add(zone);
+                }
+
+                DisableAvailabilityZonesForLoadBalancerResponse response = client.DisableAvailabilityZonesForLoadBalancer(request);
+
+                if (response.HttpStatusCode == HttpStatusCode.OK)
+                {
+                    _Log.Verbose("Successfully disabled zones '{0}'", string.Join(",", zones));
+                    return true;
+                }
+                else
+                {
+                    _Log.Error("Failed to disabled zones '{0}'", string.Join(",", zones));
+                    return false;
+                }
+            }
         #endregion
     }
 }

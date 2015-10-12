@@ -34,6 +34,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\AWSSDK.Core.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.EC2">
+      <HintPath>..\..\lib\AWSSDK.EC2.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ElasticLoadBalancing">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\AWSSDK.ElasticLoadBalancing.dll</HintPath>
