@@ -153,12 +153,11 @@ Task("Copy-Files")
     .Does(() =>
 {
     CopyFileToDirectory(buildDir + "/Cake.Core.dll", binDir);
-    CopyFileToDirectory(buildDir + "/Cake.Core.xml", binDir);
-
     CopyFileToDirectory(buildDir + "/Cake.AWS.ElasticLoadBalancing.dll", binDir);
     CopyFileToDirectory(buildDir + "/Cake.AWS.ElasticLoadBalancing.pdb", binDir);
     
     CopyFileToDirectory("./lib/AWSSDK.Core.dll", binDir);
+    CopyFileToDirectory("./lib/AWSSDK.EC2.dll", binDir);
     CopyFileToDirectory("./lib/AWSSDK.ElasticLoadBalancing.dll", binDir);
 
     CopyFiles(new FilePath[] { "LICENSE", "README.md", "ReleaseNotes.md" }, binDir);
@@ -167,9 +166,10 @@ Task("Copy-Files")
 
 	CopyDirectory("./tools/",  "./test/tools/");
 	CreateDirectory("./test/tools/Addins/Cake.AWS.ElasticLoadBalancing/lib/net45/");
-
 	CopyFileToDirectory(buildDir + "/Cake.AWS.ElasticLoadBalancing.dll", "./test/tools/Addins/Cake.AWS.ElasticLoadBalancing/lib/net45/");
-	CopyFileToDirectory("./lib/AWSSDK.Core.dll", "./test/tools/Addins/Cake.AWS.ElasticLoadBalancing/lib/net45/");
+	
+    CopyFileToDirectory("./lib/AWSSDK.Core.dll", "./test/tools/Addins/Cake.AWS.ElasticLoadBalancing/lib/net45/");
+    CopyFileToDirectory("./lib/AWSSDK.EC2.dll", "./test/tools/Addins/Cake.AWS.ElasticLoadBalancing/lib/net45/");
     CopyFileToDirectory("./lib/AWSSDK.ElasticLoadBalancing.dll", "./test/tools/Addins/Cake.AWS.ElasticLoadBalancing/lib/net45/");
 });
 
