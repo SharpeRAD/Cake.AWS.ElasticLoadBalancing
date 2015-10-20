@@ -128,7 +128,7 @@ namespace Cake.AWS.ElasticLoadBalancing
         /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
         [CakeMethodAlias]
         [CakeAliasCategory("ElasticLoadBalancing")]
-        public static bool EnableAvailabilityZones(this ICakeContext context, string loadBalancer, LoadBalancingSettings settings)
+        public static bool EnableAvailabilityZone(this ICakeContext context, string loadBalancer, LoadBalancingSettings settings)
         {
             return context.CreateManager().EnableAvailabilityZones(loadBalancer, EC2Metadata.AvailabilityZone.Split(','), settings);
         }
@@ -175,7 +175,7 @@ namespace Cake.AWS.ElasticLoadBalancing
         /// <param name="loadBalancer">The name associated with the load balancer.</param>
         /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
         [CakeMethodAlias]
-        public static bool DisableAvailabilityZones(this ICakeContext context, string loadBalancer, LoadBalancingSettings settings)
+        public static bool DisableAvailabilityZone(this ICakeContext context, string loadBalancer, LoadBalancingSettings settings)
         {
             return context.CreateManager().DisableAvailabilityZones(loadBalancer, EC2Metadata.AvailabilityZone.Split(','), settings);
         }

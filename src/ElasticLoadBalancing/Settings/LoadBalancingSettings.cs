@@ -13,6 +13,20 @@ namespace Cake.AWS.ElasticLoadBalancing
     /// </summary>
     public class LoadBalancingSettings
     {
+        #region Constructor (1)
+            /// <summary>
+            /// Initializes a new instance of the <see cref="LoadBalancingSettings" /> class.
+            /// </summary>
+            public LoadBalancingSettings()
+            {
+                this.Region = RegionEndpoint.EUWest1;
+            }
+        #endregion
+
+
+
+
+
         #region Properties (5)
             /// <summary>
             /// The AWS Access Key ID
