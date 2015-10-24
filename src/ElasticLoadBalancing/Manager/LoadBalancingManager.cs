@@ -74,6 +74,10 @@ namespace Cake.AWS.ElasticLoadBalancing
                 {
                     throw new ArgumentNullException("settings.SecretKey");
                 }
+                if (settings.Region == null)
+                {
+                    throw new ArgumentNullException("settings.Region");
+                }
 
                 return new AmazonElasticLoadBalancingClient(settings.AccessKey, settings.SecretKey, settings.Region);
             }
@@ -91,6 +95,18 @@ namespace Cake.AWS.ElasticLoadBalancing
             /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
             public bool RegisterInstances(string loadBalancer, IList<string> instances, LoadBalancingSettings settings)
             {
+                if (String.IsNullOrEmpty(loadBalancer))
+                {
+                    throw new ArgumentNullException("loadBalancer");
+                }
+                if ((instances == null) || (instances.Count == 0))
+                {
+                    throw new ArgumentNullException("instances");
+                }
+
+
+
+                //Create Request
                 AmazonElasticLoadBalancingClient client = this.CreateClient(settings);
                 RegisterInstancesWithLoadBalancerRequest request = new RegisterInstancesWithLoadBalancerRequest();
 
@@ -101,6 +117,9 @@ namespace Cake.AWS.ElasticLoadBalancing
                     request.Instances.Add(new Instance(instance));
                 }
 
+
+
+                //Check Response
                 RegisterInstancesWithLoadBalancerResponse response = client.RegisterInstancesWithLoadBalancer(request);
 
                 if (response.HttpStatusCode == HttpStatusCode.OK)
@@ -123,6 +142,18 @@ namespace Cake.AWS.ElasticLoadBalancing
             /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
             public bool DeregisterInstances(string loadBalancer, IList<string> instances, LoadBalancingSettings settings)
             {
+                if (String.IsNullOrEmpty(loadBalancer))
+                {
+                    throw new ArgumentNullException("loadBalancer");
+                }
+                if ((instances == null) || (instances.Count == 0))
+                {
+                    throw new ArgumentNullException("instances");
+                }
+
+
+
+                //Create Request
                 AmazonElasticLoadBalancingClient client = this.CreateClient(settings);
                 DeregisterInstancesFromLoadBalancerRequest request = new DeregisterInstancesFromLoadBalancerRequest();
 
@@ -133,6 +164,9 @@ namespace Cake.AWS.ElasticLoadBalancing
                     request.Instances.Add(new Instance(instance));
                 }
 
+
+
+                //Check Response
                 DeregisterInstancesFromLoadBalancerResponse response = client.DeregisterInstancesFromLoadBalancer(request);
 
                 if (response.HttpStatusCode == HttpStatusCode.OK)
@@ -158,6 +192,18 @@ namespace Cake.AWS.ElasticLoadBalancing
             /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
             public bool EnableAvailabilityZones(string loadBalancer, IList<string> zones, LoadBalancingSettings settings)
             {
+                if (String.IsNullOrEmpty(loadBalancer))
+                {
+                    throw new ArgumentNullException("loadBalancer");
+                }
+                if ((zones == null) || (zones.Count == 0))
+                {
+                    throw new ArgumentNullException("zones");
+                }
+
+
+
+                //Create Request
                 AmazonElasticLoadBalancingClient client = this.CreateClient(settings);
                 EnableAvailabilityZonesForLoadBalancerRequest request = new EnableAvailabilityZonesForLoadBalancerRequest();
             
@@ -168,6 +214,9 @@ namespace Cake.AWS.ElasticLoadBalancing
                     request.AvailabilityZones.Add(zone);
                 }
 
+
+
+                //Check Response
                 EnableAvailabilityZonesForLoadBalancerResponse response = client.EnableAvailabilityZonesForLoadBalancer(request);
 
                 if (response.HttpStatusCode == HttpStatusCode.OK)
@@ -193,6 +242,18 @@ namespace Cake.AWS.ElasticLoadBalancing
             /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
             public bool DisableAvailabilityZones(string loadBalancer, IList<string> zones, LoadBalancingSettings settings)
             {
+                if (String.IsNullOrEmpty(loadBalancer))
+                {
+                    throw new ArgumentNullException("loadBalancer");
+                }
+                if ((zones == null) || (zones.Count == 0))
+                {
+                    throw new ArgumentNullException("zones");
+                }
+
+
+
+                //Create Request
                 AmazonElasticLoadBalancingClient client = this.CreateClient(settings);
                 DisableAvailabilityZonesForLoadBalancerRequest request = new DisableAvailabilityZonesForLoadBalancerRequest();
 
@@ -203,6 +264,9 @@ namespace Cake.AWS.ElasticLoadBalancing
                     request.AvailabilityZones.Add(zone);
                 }
 
+
+
+                //Check Response
                 DisableAvailabilityZonesForLoadBalancerResponse response = client.DisableAvailabilityZonesForLoadBalancer(request);
 
                 if (response.HttpStatusCode == HttpStatusCode.OK)

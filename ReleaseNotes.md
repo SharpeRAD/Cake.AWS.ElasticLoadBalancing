@@ -1,3 +1,6 @@
+### New in 0.0.6 (Released 2015/10/24)
+* Extra argument checks
+
 ### New in 0.0.5 (Released 2015/10/10)
 * Add AvailabilityZone aliases
 * Get MetaData from EC2 nuget
