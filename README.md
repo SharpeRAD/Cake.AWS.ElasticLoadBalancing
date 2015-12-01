@@ -37,19 +37,22 @@ or directly in your build script via a cake addin:
 ```csharp
 #addin "Cake.AWS.ElasticLoadBalancing"
 
+LoadBalancingSettings settings = Context.CreateLoadBalancingSettings();
+
+
 
 Task("Register-Instances")
     .Description("Adds new instances to the load balancer.")
     .Does(() =>
 {
-    RegisterLoadBalancerInstances("LoadBlanerName", "instance1,instance2,instance3");
+    RegisterLoadBalancerInstances("LoadBlanerName", "instance1,instance2,instance3", settings);
 });
 
 Task("Deregister-Instances")
     .Description("Deregisters instances from the load balancer.")
     .Does(() =>
 {
-    DeregisterLoadBalancerInstances("LoadBlanerName", "instance1,instance2,instance3");
+    DeregisterLoadBalancerInstances("LoadBlanerName", "instance1,instance2,instance3", settings);
 });
 
 
