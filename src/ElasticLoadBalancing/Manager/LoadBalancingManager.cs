@@ -129,7 +129,7 @@ namespace Cake.AWS.ElasticLoadBalancing
                 }
                 else
                 {
-                    _Log.Error("Failed to registere instances '{0}'", string.Join(",", instances));
+                    _Log.Error("Failed to register instances '{0}'", string.Join(",", instances));
                     return false;
                 }
             }

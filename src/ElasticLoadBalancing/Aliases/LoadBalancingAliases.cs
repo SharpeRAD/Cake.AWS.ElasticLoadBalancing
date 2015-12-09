@@ -13,6 +13,9 @@
 
 namespace Cake.AWS.ElasticLoadBalancing
 {
+    /// <summary>
+    /// Contains Cake aliases for configuring Amazon Elastic Load Balancers
+    /// </summary>
     [CakeAliasCategory("AWS")]
     [CakeNamespaceImport("Amazon")]
     [CakeNamespaceImport("Amazon.ElasticLoadBalancing")]
