@@ -9,7 +9,7 @@
 namespace Cake.AWS.ElasticLoadBalancing
 {
     /// <summary>
-    /// The settings to use with downlad requests to Amazon ElasticLoadBalancing
+    /// The settings to use with download requests to Amazon ElasticLoadBalancing
     /// </summary>
     public class LoadBalancingSettings
     {
@@ -37,8 +37,6 @@ namespace Cake.AWS.ElasticLoadBalancing
             /// The AWS Secret Access Key.
             /// </summary>
             public string SecretKey { get; set; }
-
-
 
             /// <summary>
             /// The endpoints available to AWS clients.
