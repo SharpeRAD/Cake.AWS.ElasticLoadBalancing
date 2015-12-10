@@ -1,3 +1,7 @@
+### New in 0.0.7 (Released 2015/12/10)
+* Add Cake namespace docs
+* Update Cake.Core reference
+
 ### New in 0.0.6 (Released 2015/10/24)
 * Extra argument checks
 

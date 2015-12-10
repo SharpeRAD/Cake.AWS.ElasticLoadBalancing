@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 namespace Cake.AWS.ElasticLoadBalancing
 {
     /// <summary>
-    /// This namespace contains elastic load balancing aliases and related members.
+    /// This namespace contains Amazon elastic load balancing aliases and related members.
     /// </summary>
     [CompilerGenerated]
     internal class NamespaceDoc
