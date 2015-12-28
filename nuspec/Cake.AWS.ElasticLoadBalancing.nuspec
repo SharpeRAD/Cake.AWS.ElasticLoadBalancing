@@ -22,6 +22,7 @@
       <file src="AWSSDK.EC2.dll" target="lib/net45" />
       <file src="AWSSDK.ElasticLoadBalancing.dll" target="lib/net45" />
       <file src="Cake.AWS.ElasticLoadBalancing.dll" target="lib/net45" />
+      <file src="Cake.AWS.ElasticLoadBalancing.xml" target="lib/net45" />
       <file src="LICENSE" />
    </files>
 </package>

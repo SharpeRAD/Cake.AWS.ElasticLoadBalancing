@@ -1,3 +1,6 @@
+### New in 0.0.8 (Released 2015/12/28)
+* Add xml documentation
+
 ### New in 0.0.7 (Released 2015/12/10)
 * Add Cake namespace docs
 * Update Cake.Core reference

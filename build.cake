@@ -154,7 +154,8 @@ Task("Copy-Files")
 {
     CopyFileToDirectory(buildDir + "/Cake.AWS.ElasticLoadBalancing.dll", binDir);
     CopyFileToDirectory(buildDir + "/Cake.AWS.ElasticLoadBalancing.pdb", binDir);
-    
+    CopyFileToDirectory(buildDir + "/Cake.AWS.ElasticLoadBalancing.xml", binDir);
+
     CopyFileToDirectory("./lib/AWSSDK.Core.dll", binDir);
     CopyFileToDirectory("./lib/AWSSDK.EC2.dll", binDir);
     CopyFileToDirectory("./lib/AWSSDK.ElasticLoadBalancing.dll", binDir);
