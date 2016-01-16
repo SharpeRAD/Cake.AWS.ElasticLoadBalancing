@@ -1,3 +1,6 @@
+### New in 0.0.9 (Released 2016/01/16)
+* Fixed SolutionInfo link
+
 ### New in 0.0.8 (Released 2015/12/28)
 * Add xml documentation
 
@@ -17,7 +20,7 @@
 * Remove Cake.Core reference
 
 ### New in 0.0.3 (Released 2015/09/28)
-* Added current instance aliase
+* Added current instance alias
 * Remove duplicate settings
 
 ### New in 0.0.2 (Released 2015/09/23)
