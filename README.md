@@ -38,7 +38,7 @@ Cake.AWS.ElasticLoadBalancing is available as a nuget package from the package m
 Install-Package Cake.AWS.ElasticLoadBalancing
 ```
 
-or directly in your build script via a cake addin:
+or directly in your build script via a cake addin directive:
 
 ```csharp
 #addin "Cake.AWS.ElasticLoadBalancing"
