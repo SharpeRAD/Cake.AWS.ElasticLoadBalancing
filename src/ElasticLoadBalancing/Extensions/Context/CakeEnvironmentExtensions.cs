@@ -30,8 +30,8 @@ namespace Cake.AWS.ElasticLoadBalancing
 
             LoadBalancingSettings settings = new LoadBalancingSettings()
             {
-                AccessKey = environment.GetEnvironmentVariable("AWS_ACCESSKEY"),
-                SecretKey = environment.GetEnvironmentVariable("AWS_SECRETKEY")
+                AccessKey = environment.GetEnvironmentVariable("AWS_ACCESS_KEY_ID"),
+                SecretKey = environment.GetEnvironmentVariable("AWS_SECRET_ACCESS_KEY")
             };
 
 
