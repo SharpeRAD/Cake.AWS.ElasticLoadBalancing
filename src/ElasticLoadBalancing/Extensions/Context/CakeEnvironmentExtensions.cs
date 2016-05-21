@@ -1,10 +1,10 @@
 ﻿#region Using Statements
     using System;
-    using System.Collections.Generic;
 
     using Cake.Core;
 
     using Amazon;
+    using Amazon.Runtime;
 #endregion
 
 
@@ -28,16 +28,22 @@ namespace Cake.AWS.ElasticLoadBalancing
                 throw new ArgumentNullException("environment");
             }
 
-            LoadBalancingSettings settings = new LoadBalancingSettings()
+            LoadBalancingSettings settings = new LoadBalancingSettings();
+            
+            //AWS Fallback
+            AWSCredentials creds = FallbackCredentialsFactory.GetCredentials();
+            if (creds != null)
             {
-                AccessKey = environment.GetEnvironmentVariable("AWS_ACCESS_KEY_ID"),
-                SecretKey = environment.GetEnvironmentVariable("AWS_SECRET_ACCESS_KEY")
-            };
+                ImmutableCredentials imute = creds.GetCredentials();
+                if (creds != null)
+                {
+                    settings.AccessKey = imute.AccessKey;
+                    settings.SecretKey = imute.SecretKey;
+                }
+            }
 
-
-
+            //Environment Variables
             string region = environment.GetEnvironmentVariable("AWS_REGION");
-
             if (!String.IsNullOrEmpty(region))
             {
                 settings.Region = RegionEndpoint.GetBySystemName(region);
