@@ -25,6 +25,7 @@ Cake Build addin for configuring Amazon Elastic Load Balancers
 
 * Register Instances
 * Deregister Instances
+* Uses AWS fallback credentials (app.config / web.config file, SDK store or credentials file, environment variables, instance profile)
 
 
 
@@ -67,6 +68,13 @@ Task("Deregister-Instances")
     .Does(() =>
 {
     DeregisterLoadBalancerInstances("LoadBlanerName", "instance1,instance2,instance3", settings);
+});
+
+Task("Deregister-Instances-Fallback")
+    .Description("Deregisters instances from the load balancer, using AWS Fallback credentials")
+    .Does(() =>
+{
+    DeregisterLoadBalancerInstances("LoadBlanerName", "instance1,instance2,instance3", Context.CreateLoadBalancingSettings());
 });
 
 RunTarget("Register-Instances");
