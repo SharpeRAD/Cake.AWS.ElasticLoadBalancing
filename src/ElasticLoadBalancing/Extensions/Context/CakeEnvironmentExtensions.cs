@@ -34,12 +34,7 @@ namespace Cake.AWS.ElasticLoadBalancing
             AWSCredentials creds = FallbackCredentialsFactory.GetCredentials();
             if (creds != null)
             {
-                ImmutableCredentials imute = creds.GetCredentials();
-                if (creds != null)
-                {
-                    settings.AccessKey = imute.AccessKey;
-                    settings.SecretKey = imute.SecretKey;
-                }
+                settings.Credentials = creds;
             }
 
             //Environment Variables
