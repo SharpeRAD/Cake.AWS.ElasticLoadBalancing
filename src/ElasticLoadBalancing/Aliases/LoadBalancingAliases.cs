@@ -6,7 +6,7 @@
     using Cake.Core.IO;
     using Cake.Core.Annotations;
 
-    using Amazon.EC2.Util;
+    using Amazon.Util;
 #endregion
 
 
@@ -41,7 +41,7 @@ namespace Cake.AWS.ElasticLoadBalancing
         [CakeAliasCategory("ElasticLoadBalancing")]
         public static bool RegisterLoadBalancerInstance(this ICakeContext context, string loadBalancer, LoadBalancingSettings settings)
         {
-            return context.CreateManager().RegisterInstances(loadBalancer, EC2Metadata.InstanceId.Split(','), settings);
+            return context.CreateManager().RegisterInstances(loadBalancer, EC2InstanceMetadata.InstanceId.Split(','), settings);
         }
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace Cake.AWS.ElasticLoadBalancing
         [CakeMethodAlias]
         public static bool DeregisterLoadBalancerInstance(this ICakeContext context, string loadBalancer, LoadBalancingSettings settings)
         {
-            return context.CreateManager().DeregisterInstances(loadBalancer, EC2Metadata.InstanceId.Split(','), settings);
+            return context.CreateManager().DeregisterInstances(loadBalancer, EC2InstanceMetadata.InstanceId.Split(','), settings);
         }
 
         /// <summary>
@@ -133,7 +133,7 @@ namespace Cake.AWS.ElasticLoadBalancing
         [CakeAliasCategory("ElasticLoadBalancing")]
         public static bool EnableAvailabilityZone(this ICakeContext context, string loadBalancer, LoadBalancingSettings settings)
         {
-            return context.CreateManager().EnableAvailabilityZones(loadBalancer, EC2Metadata.AvailabilityZone.Split(','), settings);
+            return context.CreateManager().EnableAvailabilityZones(loadBalancer, EC2InstanceMetadata.AvailabilityZone.Split(','), settings);
         }
 
         /// <summary>
@@ -180,7 +180,7 @@ namespace Cake.AWS.ElasticLoadBalancing
         [CakeMethodAlias]
         public static bool DisableAvailabilityZone(this ICakeContext context, string loadBalancer, LoadBalancingSettings settings)
         {
-            return context.CreateManager().DisableAvailabilityZones(loadBalancer, EC2Metadata.AvailabilityZone.Split(','), settings);
+            return context.CreateManager().DisableAvailabilityZones(loadBalancer, EC2InstanceMetadata.AvailabilityZone.Split(','), settings);
         }
 
         /// <summary>

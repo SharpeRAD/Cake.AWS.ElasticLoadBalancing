@@ -28,6 +28,7 @@ namespace Cake.AWS.ElasticLoadBalancing.Tests
         public Verbosity Verbosity
         {
             get { return Verbosity.Diagnostic; }
+            set { }
         }
 
 
