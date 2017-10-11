@@ -5,9 +5,8 @@
 //------------------------------------------------------------------------------
 using System.Reflection;
 
-[assembly: AssemblyProduct("Cake.AWS.ElasticLoadBalancing")]
-[assembly: AssemblyVersion("0.1.1")]
-[assembly: AssemblyFileVersion("0.1.1")]
-[assembly: AssemblyInformationalVersion("0.1.1")]
-[assembly: AssemblyCopyright("Copyright (c) 2015 - 2016 Phillip Sharpe")]
+[assembly: AssemblyVersion("0.2.0")]
+[assembly: AssemblyFileVersion("0.2.0")]
+[assembly: AssemblyInformationalVersion("0.2.0")]
+[assembly: AssemblyCopyright("Copyright (c) 2015 - 2017 Phillip Sharpe")]
 
