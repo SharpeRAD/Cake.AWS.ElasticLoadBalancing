@@ -1,10 +1,7 @@
 ﻿#region Using Statements
-    using System;
-    using System.Collections.Generic;
+using System;
 
-    using Cake.Core;
-
-    using Amazon;
+using Cake.Core;
 #endregion
 
 

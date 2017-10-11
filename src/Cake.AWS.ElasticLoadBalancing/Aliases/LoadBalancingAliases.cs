@@ -1,12 +1,10 @@
 ﻿#region Using Statements
-    using System.Net;
-    using System.Collections.Generic;
+using System.Collections.Generic;
 
-    using Cake.Core;
-    using Cake.Core.IO;
-    using Cake.Core.Annotations;
+using Cake.Core;
+using Cake.Core.Annotations;
 
-    using Amazon.Util;
+using Amazon.Util;
 #endregion
 
 

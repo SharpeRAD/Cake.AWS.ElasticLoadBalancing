@@ -1,9 +1,9 @@
 ﻿#region Using Statements
-    using System;
+using System;
 
-    using Xunit;
+using Xunit;
 
-    using Cake.AWS.ElasticLoadBalancing;
+using Cake.AWS.ElasticLoadBalancing;
 #endregion
 
 

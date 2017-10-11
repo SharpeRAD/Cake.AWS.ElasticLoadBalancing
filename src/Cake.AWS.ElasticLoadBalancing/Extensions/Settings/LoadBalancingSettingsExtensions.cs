@@ -1,8 +1,7 @@
 ﻿#region Using Statements
-    using System;
-    using System.Collections.Generic;
+using System;
 
-    using Amazon;
+using Amazon;
 #endregion
 
 

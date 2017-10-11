@@ -88,6 +88,12 @@ A complete Cake example can be found [here](https://github.com/SharpeRAD/Cake.AW
 
 
 
+## TroubleShooting
+
+* Please be aware of the breaking changes that occurred with the release of [Cake v0.22.0](https://cakebuild.net/blog/2017/09/cake-v0.22.0-released), you will need to upgrade Cake in order to use Cake.AWS.ElasticLoadBalancing v0.2.0 or above.
+
+
+
 ## Plays well with
 
 If your routing traffic to EC2 instances its worth checking out [Cake.AWS.EC2](https://github.com/SharpeRAD/Cake.AWS.EC2) or if your using Route53 as your DNS server check out [Cake.AWS.Route53](https://github.com/SharpeRAD/Cake.AWS.Route53).
