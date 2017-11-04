@@ -1,35 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
-      <id>Cake.AWS.ElasticLoadBalancing</id>
-      <version>0.0.0</version>
-      <authors>Phillip Sharpe</authors>
-      <owners>Phillip Sharpe</owners>
-      <title>Cake.AWS.ElasticLoadBalancing</title>
-      <description>Cake Build addon for configuring Amazon Elastic Load Balancers.</description>
-      <summary>Amazon ElasticLoadBalancing addon for cake build.</summary>
-      <licenseUrl>https://github.com/SharpeRAD/Cake.AWS.ElasticLoadBalancing/LICENSE</licenseUrl>
-      <projectUrl>https://github.com/SharpeRAD/Cake.AWS.ElasticLoadBalancing</projectUrl>
-       <iconUrl>https://cdn.rawgit.com/cake-contrib/graphics/a5cf0f881c390650144b2243ae551d5b9f836196/png/cake-contrib-medium.png</iconUrl>
-      <requireLicenseAcceptance>false</requireLicenseAcceptance>
-      <copyright>Copyright (c) Phillip Sharpe 2015</copyright>
-      <releaseNotes>Initial Release</releaseNotes>
-      <tags>Cake Script Build Amazon ElasticLoadBalancing</tags>
+    <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+        <id>Cake.AWS.ElasticLoadBalancing</id>
+        <version>0.0.0</version>
+        <authors>Phillip Sharpe</authors>
+        <owners>Phillip Sharpe</owners>
+        <title>Cake.AWS.ElasticLoadBalancing</title>
+        <description>Cake Build addon for configuring Amazon Elastic Load Balancers.</description>
+        <summary>Amazon ElasticLoadBalancing addon for cake build.</summary>
+        <licenseUrl>https://github.com/SharpeRAD/Cake.AWS.ElasticLoadBalancing/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/SharpeRAD/Cake.AWS.ElasticLoadBalancing</projectUrl>
+        <iconUrl>https://cdn.rawgit.com/cake-contrib/graphics/a5cf0f881c390650144b2243ae551d5b9f836196/png/cake-contrib-medium.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <copyright>Copyright (c) Phillip Sharpe 2015</copyright>
+        <releaseNotes>Initial Release</releaseNotes>
+        <tags>Cake Script Build Amazon ElasticLoadBalancing</tags>
 
-      <dependencies>
-          <dependency id="Cake.Core" version="0.22.0" />
-          <dependency id="AWSSDK.Core" version="3.3.17.9" />
-          <dependency id="AWSSDK.ElasticLoadBalancing" version="3.3.1.3" />
-      </dependencies>
-   </metadata>
+        <dependencies>
+            <dependency id="Cake.Core" version="0.22.0" />
+            <dependency id="AWSSDK.Core" version="3.3.17.9" />
+            <dependency id="AWSSDK.ElasticLoadBalancing" version="3.3.1.3" />
+        </dependencies>
+    </metadata>
 
-   <files>
-       <file src="net461/Cake.AWS.ElasticLoadBalancing.dll" target="lib/net461" />
-       <file src="net461/Cake.AWS.ElasticLoadBalancing.xml" target="lib/net461" />
-       
-       <file src="net461/AWSSDK.Core.dll" target="lib/net461" />
-       <file src="net461/AWSSDK.ElasticLoadBalancing.dll" target="lib/net461" />
-       
-      <file src="LICENSE" />
-   </files>
+    <files>
+        <file src="net46/AWSSDK.Core.dll" target="lib/net46" />
+        <file src="net46/AWSSDK.ElasticLoadBalancing.dll" target="lib/net46" />
+
+        <file src="net46/Cake.AWS.ElasticLoadBalancing.dll" target="lib/net46" />
+        <file src="net46/Cake.AWS.ElasticLoadBalancing.xml" target="lib/net46" />
+        <file src="net46/Cake.AWS.ElasticLoadBalancing.pdb" target="lib/net46" />
+
+        <file src="netstandard1.6/Cake.AWS.ElasticLoadBalancing.dll" target="lib/netstandard1.6" />
+        <file src="netstandard1.6/Cake.AWS.ElasticLoadBalancing.xml" target="lib/netstandard1.6" />
+        <file src="netstandard1.6/Cake.AWS.ElasticLoadBalancing.pdb" target="lib/netstandard1.6" />
+        <file src="netstandard1.6/Cake.AWS.ElasticLoadBalancing.deps.json" target="lib/netstandard1.6" />
+
+        <file src="LICENSE" />
+    </files>
 </package>

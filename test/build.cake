@@ -31,7 +31,7 @@ Setup(context =>
 
 Task("Register-Instances")
     .Description("Adds new instances to the load balancer.")
-    .Does(() =>
+    .Does(async () =>
 {
     RegisterLoadBalancerInstances("LoadBlanerName", "instance1,instance2,instance3");
 });
@@ -39,7 +39,7 @@ Task("Register-Instances")
 Task("Deregister-Instances")
     .IsDependentOn("Register-Instances")
     .Description("Removes instances from the load balancer.")
-    .Does(() =>
+    .Does(async () =>
 {
     DeregisterLoadBalancerInstances("LoadBlanerName", "instance1,instance2,instance3");
 });

@@ -58,23 +58,23 @@ LoadBalancingSettings settings = Context.CreateLoadBalancingSettings();
 
 Task("Register-Instances")
     .Description("Adds new instances to the load balancer.")
-    .Does(() =>
+    .Does(async () =>
 {
-    RegisterLoadBalancerInstances("LoadBlanerName", "instance1,instance2,instance3", settings);
+    await RegisterLoadBalancerInstances("LoadBlanerName", "instance1,instance2,instance3", settings);
 });
 
 Task("Deregister-Instances")
     .Description("Deregisters instances from the load balancer.")
-    .Does(() =>
+    .Does(async () =>
 {
-    DeregisterLoadBalancerInstances("LoadBlanerName", "instance1,instance2,instance3", settings);
+    await DeregisterLoadBalancerInstances("LoadBlanerName", "instance1,instance2,instance3", settings);
 });
 
 Task("Deregister-Instances-Fallback")
     .Description("Deregisters instances from the load balancer, using AWS Fallback credentials")
-    .Does(() =>
+    .Does(async () =>
 {
-    DeregisterLoadBalancerInstances("LoadBlanerName", "instance1,instance2,instance3", Context.CreateLoadBalancingSettings());
+    await DeregisterLoadBalancerInstances("LoadBlanerName", "instance1,instance2,instance3", Context.CreateLoadBalancingSettings());
 });
 
 RunTarget("Register-Instances");

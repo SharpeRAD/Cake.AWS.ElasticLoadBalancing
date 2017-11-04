@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Threading;
+using System.Threading.Tasks;
 
 using Cake.Core;
 using Cake.Core.Diagnostics;
@@ -102,7 +104,8 @@ namespace Cake.AWS.ElasticLoadBalancing
         /// <param name="loadBalancer">The name associated with the load balancer.</param>
         /// <param name="instances">A list of instance IDs that should be registered with the load balancer.</param>
         /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
-        public bool RegisterInstances(string loadBalancer, IList<string> instances, LoadBalancingSettings settings)
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        public async Task<bool> RegisterInstances(string loadBalancer, IList<string> instances, LoadBalancingSettings settings, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (String.IsNullOrEmpty(loadBalancer))
             {
@@ -129,7 +132,7 @@ namespace Cake.AWS.ElasticLoadBalancing
 
 
             //Check Response
-            RegisterInstancesWithLoadBalancerResponse response = client.RegisterInstancesWithLoadBalancer(request);
+            RegisterInstancesWithLoadBalancerResponse response = await client.RegisterInstancesWithLoadBalancerAsync(request, cancellationToken);
 
             if (response.HttpStatusCode == HttpStatusCode.OK)
             {
@@ -149,7 +152,8 @@ namespace Cake.AWS.ElasticLoadBalancing
         /// <param name="loadBalancer">The name associated with the load balancer.</param>
         /// <param name="instances">A list of instance IDs that should be deregistered with the load balancer.</param>
         /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
-        public bool DeregisterInstances(string loadBalancer, IList<string> instances, LoadBalancingSettings settings)
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        public async Task<bool> DeregisterInstances(string loadBalancer, IList<string> instances, LoadBalancingSettings settings, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (String.IsNullOrEmpty(loadBalancer))
             {
@@ -176,7 +180,7 @@ namespace Cake.AWS.ElasticLoadBalancing
 
 
             //Check Response
-            DeregisterInstancesFromLoadBalancerResponse response = client.DeregisterInstancesFromLoadBalancer(request);
+            DeregisterInstancesFromLoadBalancerResponse response = await client.DeregisterInstancesFromLoadBalancerAsync(request, cancellationToken);
 
             if (response.HttpStatusCode == HttpStatusCode.OK)
             {
@@ -199,7 +203,8 @@ namespace Cake.AWS.ElasticLoadBalancing
         /// <param name="loadBalancer">The name associated with the load balancer.</param>
         /// <param name="zones">The Availability Zones to add to the load balancer.</param>
         /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
-        public bool EnableAvailabilityZones(string loadBalancer, IList<string> zones, LoadBalancingSettings settings)
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        public async Task<bool> EnableAvailabilityZones(string loadBalancer, IList<string> zones, LoadBalancingSettings settings, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (String.IsNullOrEmpty(loadBalancer))
             {
@@ -226,7 +231,7 @@ namespace Cake.AWS.ElasticLoadBalancing
 
 
             //Check Response
-            EnableAvailabilityZonesForLoadBalancerResponse response = client.EnableAvailabilityZonesForLoadBalancer(request);
+            EnableAvailabilityZonesForLoadBalancerResponse response = await client.EnableAvailabilityZonesForLoadBalancerAsync(request, cancellationToken);
 
             if (response.HttpStatusCode == HttpStatusCode.OK)
             {
@@ -249,7 +254,8 @@ namespace Cake.AWS.ElasticLoadBalancing
         /// <param name="loadBalancer">The name associated with the load balancer.</param>
         /// <param name="zones">The Availability Zones to remove from the load balancer.</param>
         /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
-        public bool DisableAvailabilityZones(string loadBalancer, IList<string> zones, LoadBalancingSettings settings)
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        public async Task<bool> DisableAvailabilityZones(string loadBalancer, IList<string> zones, LoadBalancingSettings settings, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (String.IsNullOrEmpty(loadBalancer))
             {
@@ -276,7 +282,7 @@ namespace Cake.AWS.ElasticLoadBalancing
 
 
             //Check Response
-            DisableAvailabilityZonesForLoadBalancerResponse response = client.DisableAvailabilityZonesForLoadBalancer(request);
+            DisableAvailabilityZonesForLoadBalancerResponse response = await client.DisableAvailabilityZonesForLoadBalancerAsync(request, cancellationToken);
 
             if (response.HttpStatusCode == HttpStatusCode.OK)
             {

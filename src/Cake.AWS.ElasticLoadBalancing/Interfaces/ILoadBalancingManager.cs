@@ -1,5 +1,7 @@
 ﻿#region Using Statements
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 #endregion
 
 
@@ -21,7 +23,8 @@ namespace Cake.AWS.ElasticLoadBalancing
         /// <param name="loadBalancer">The name associated with the load balancer.</param>
         /// <param name="instances">A list of instance IDs that should be registered with the load balancer.</param>
         /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
-        bool RegisterInstances(string loadBalancer, IList<string> instances, LoadBalancingSettings settings);
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        Task<bool> RegisterInstances(string loadBalancer, IList<string> instances, LoadBalancingSettings settings, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Removes instances from the load balancer. Once the instance is deregistered, it will stop receiving traffic from the load balancer. 
@@ -29,7 +32,8 @@ namespace Cake.AWS.ElasticLoadBalancing
         /// <param name="loadBalancer">The name associated with the load balancer.</param>
         /// <param name="instances">A list of instance IDs that should be deregistered with the load balancer.</param>
         /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
-        bool DeregisterInstances(string loadBalancer, IList<string> instances, LoadBalancingSettings settings);
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        Task<bool> DeregisterInstances(string loadBalancer, IList<string> instances, LoadBalancingSettings settings, CancellationToken cancellationToken = default(CancellationToken));
 
 
 
@@ -40,7 +44,8 @@ namespace Cake.AWS.ElasticLoadBalancing
         /// <param name="loadBalancer">The name associated with the load balancer.</param>
         /// <param name="zones">The Availability Zones to add to the load balancer.</param>
         /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
-        bool EnableAvailabilityZones(string loadBalancer, IList<string> zones, LoadBalancingSettings settings);
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        Task<bool> EnableAvailabilityZones(string loadBalancer, IList<string> zones, LoadBalancingSettings settings, CancellationToken cancellationToken = default(CancellationToken));
 
 
         /// <summary>
@@ -52,7 +57,8 @@ namespace Cake.AWS.ElasticLoadBalancing
         /// <param name="loadBalancer">The name associated with the load balancer.</param>
         /// <param name="zones">The Availability Zones to remove from the load balancer.</param>
         /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
-        bool DisableAvailabilityZones(string loadBalancer, IList<string> zones, LoadBalancingSettings settings);
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        Task<bool> DisableAvailabilityZones(string loadBalancer, IList<string> zones, LoadBalancingSettings settings, CancellationToken cancellationToken = default(CancellationToken));
         #endregion
     }
 }

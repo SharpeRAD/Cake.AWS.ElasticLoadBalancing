@@ -1,5 +1,7 @@
 ﻿#region Using Statements
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 using Cake.Core;
 using Cake.Core.Annotations;
@@ -37,9 +39,9 @@ namespace Cake.AWS.ElasticLoadBalancing
         /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
         [CakeMethodAlias]
         [CakeAliasCategory("ElasticLoadBalancing")]
-        public static bool RegisterLoadBalancerInstance(this ICakeContext context, string loadBalancer, LoadBalancingSettings settings)
+        public static async Task<bool> RegisterLoadBalancerInstance(this ICakeContext context, string loadBalancer, LoadBalancingSettings settings)
         {
-            return context.CreateManager().RegisterInstances(loadBalancer, EC2InstanceMetadata.InstanceId.Split(','), settings);
+            return await context.CreateManager().RegisterInstances(loadBalancer, EC2InstanceMetadata.InstanceId.Split(','), settings);
         }
 
         /// <summary>
@@ -54,9 +56,9 @@ namespace Cake.AWS.ElasticLoadBalancing
         /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
         [CakeMethodAlias]
         [CakeAliasCategory("ElasticLoadBalancing")]
-        public static bool RegisterLoadBalancerInstances(this ICakeContext context, string loadBalancer, string instances, LoadBalancingSettings settings)
+        public static async Task<bool> RegisterLoadBalancerInstances(this ICakeContext context, string loadBalancer, string instances, LoadBalancingSettings settings)
         {
-            return context.CreateManager().RegisterInstances(loadBalancer, instances.Split(','), settings);
+            return await context.CreateManager().RegisterInstances(loadBalancer, instances.Split(','), settings);
         }
 
         /// <summary>
@@ -71,9 +73,9 @@ namespace Cake.AWS.ElasticLoadBalancing
         /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
         [CakeMethodAlias]
         [CakeAliasCategory("ElasticLoadBalancing")]
-        public static bool RegisterLoadBalancerInstances(this ICakeContext context, string loadBalancer, IList<string> instances, LoadBalancingSettings settings)
+        public static async Task<bool> RegisterLoadBalancerInstances(this ICakeContext context, string loadBalancer, IList<string> instances, LoadBalancingSettings settings)
         {
-            return context.CreateManager().RegisterInstances(loadBalancer, instances, settings);
+            return await context.CreateManager().RegisterInstances(loadBalancer, instances, settings);
         }
 
 
@@ -85,23 +87,9 @@ namespace Cake.AWS.ElasticLoadBalancing
         /// <param name="loadBalancer">The name associated with the load balancer.</param>
         /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
         [CakeMethodAlias]
-        public static bool DeregisterLoadBalancerInstance(this ICakeContext context, string loadBalancer, LoadBalancingSettings settings)
+        public static async Task<bool> DeregisterLoadBalancerInstance(this ICakeContext context, string loadBalancer, LoadBalancingSettings settings)
         {
-            return context.CreateManager().DeregisterInstances(loadBalancer, EC2InstanceMetadata.InstanceId.Split(','), settings);
-        }
-
-        /// <summary>
-        /// Removes instances from the load balancer. Once the instance is deregistered, it will stop receiving traffic from the load balancer. 
-        /// </summary>
-        /// <param name="context">The cake context.</param>
-        /// <param name="loadBalancer">The name associated with the load balancer.</param>
-        /// <param name="instances">A list of instance IDs that should be deregistered with the load balancer.</param>
-        /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
-        [CakeMethodAlias]
-        [CakeAliasCategory("ElasticLoadBalancing")]
-        public static bool DeregisterLoadBalancerInstances(this ICakeContext context, string loadBalancer, string instances, LoadBalancingSettings settings)
-        {
-            return context.CreateManager().DeregisterInstances(loadBalancer, instances.Split(','), settings);
+            return await context.CreateManager().DeregisterInstances(loadBalancer, EC2InstanceMetadata.InstanceId.Split(','), settings);
         }
 
         /// <summary>
@@ -113,9 +101,23 @@ namespace Cake.AWS.ElasticLoadBalancing
         /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
         [CakeMethodAlias]
         [CakeAliasCategory("ElasticLoadBalancing")]
-        public static bool DeregisterLoadBalancerInstances(this ICakeContext context, string loadBalancer, IList<string> instances, LoadBalancingSettings settings)
+        public static async Task<bool> DeregisterLoadBalancerInstances(this ICakeContext context, string loadBalancer, string instances, LoadBalancingSettings settings)
         {
-            return context.CreateManager().DeregisterInstances(loadBalancer, instances, settings);
+            return await context.CreateManager().DeregisterInstances(loadBalancer, instances.Split(','), settings);
+        }
+
+        /// <summary>
+        /// Removes instances from the load balancer. Once the instance is deregistered, it will stop receiving traffic from the load balancer. 
+        /// </summary>
+        /// <param name="context">The cake context.</param>
+        /// <param name="loadBalancer">The name associated with the load balancer.</param>
+        /// <param name="instances">A list of instance IDs that should be deregistered with the load balancer.</param>
+        /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
+        [CakeMethodAlias]
+        [CakeAliasCategory("ElasticLoadBalancing")]
+        public static async Task<bool> DeregisterLoadBalancerInstances(this ICakeContext context, string loadBalancer, IList<string> instances, LoadBalancingSettings settings)
+        {
+            return await context.CreateManager().DeregisterInstances(loadBalancer, instances, settings);
         }
 
 
@@ -129,9 +131,9 @@ namespace Cake.AWS.ElasticLoadBalancing
         /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
         [CakeMethodAlias]
         [CakeAliasCategory("ElasticLoadBalancing")]
-        public static bool EnableAvailabilityZone(this ICakeContext context, string loadBalancer, LoadBalancingSettings settings)
+        public static async Task<bool> EnableAvailabilityZone(this ICakeContext context, string loadBalancer, LoadBalancingSettings settings)
         {
-            return context.CreateManager().EnableAvailabilityZones(loadBalancer, EC2InstanceMetadata.AvailabilityZone.Split(','), settings);
+            return await context.CreateManager().EnableAvailabilityZones(loadBalancer, EC2InstanceMetadata.AvailabilityZone.Split(','), settings);
         }
 
         /// <summary>
@@ -144,9 +146,9 @@ namespace Cake.AWS.ElasticLoadBalancing
         /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
         [CakeMethodAlias]
         [CakeAliasCategory("ElasticLoadBalancing")]
-        public static bool EnableAvailabilityZones(this ICakeContext context, string loadBalancer, string zones, LoadBalancingSettings settings)
+        public static async Task<bool> EnableAvailabilityZones(this ICakeContext context, string loadBalancer, string zones, LoadBalancingSettings settings)
         {
-            return context.CreateManager().EnableAvailabilityZones(loadBalancer, zones.Split(','), settings);
+            return await context.CreateManager().EnableAvailabilityZones(loadBalancer, zones.Split(','), settings);
         }
 
         /// <summary>
@@ -159,9 +161,9 @@ namespace Cake.AWS.ElasticLoadBalancing
         /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
         [CakeMethodAlias]
         [CakeAliasCategory("ElasticLoadBalancing")]
-        public static bool EnableAvailabilityZones(this ICakeContext context, string loadBalancer, IList<string> zones, LoadBalancingSettings settings)
+        public static async Task<bool> EnableAvailabilityZones(this ICakeContext context, string loadBalancer, IList<string> zones, LoadBalancingSettings settings)
         {
-            return context.CreateManager().EnableAvailabilityZones(loadBalancer, zones, settings);
+            return await context.CreateManager().EnableAvailabilityZones(loadBalancer, zones, settings);
         }
 
 
@@ -176,9 +178,9 @@ namespace Cake.AWS.ElasticLoadBalancing
         /// <param name="loadBalancer">The name associated with the load balancer.</param>
         /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
         [CakeMethodAlias]
-        public static bool DisableAvailabilityZone(this ICakeContext context, string loadBalancer, LoadBalancingSettings settings)
+        public static async Task<bool> DisableAvailabilityZone(this ICakeContext context, string loadBalancer, LoadBalancingSettings settings)
         {
-            return context.CreateManager().DisableAvailabilityZones(loadBalancer, EC2InstanceMetadata.AvailabilityZone.Split(','), settings);
+            return await context.CreateManager().DisableAvailabilityZones(loadBalancer, EC2InstanceMetadata.AvailabilityZone.Split(','), settings);
         }
 
         /// <summary>
@@ -193,9 +195,9 @@ namespace Cake.AWS.ElasticLoadBalancing
         /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
         [CakeMethodAlias]
         [CakeAliasCategory("ElasticLoadBalancing")]
-        public static bool DisableAvailabilityZones(this ICakeContext context, string loadBalancer, string zones, LoadBalancingSettings settings)
+        public static async Task<bool> DisableAvailabilityZones(this ICakeContext context, string loadBalancer, string zones, LoadBalancingSettings settings)
         {
-            return context.CreateManager().DisableAvailabilityZones(loadBalancer, zones.Split(','), settings);
+            return await context.CreateManager().DisableAvailabilityZones(loadBalancer, zones.Split(','), settings);
         }
 
         /// <summary>
@@ -210,9 +212,9 @@ namespace Cake.AWS.ElasticLoadBalancing
         /// <param name="settings">The <see cref="LoadBalancingSettings"/> used during the request to AWS.</param>
         [CakeMethodAlias]
         [CakeAliasCategory("ElasticLoadBalancing")]
-        public static bool DisableAvailabilityZones(this ICakeContext context, string loadBalancer, IList<string> zones, LoadBalancingSettings settings)
+        public static async Task<bool> DisableAvailabilityZones(this ICakeContext context, string loadBalancer, IList<string> zones, LoadBalancingSettings settings)
         {
-            return context.CreateManager().DisableAvailabilityZones(loadBalancer, zones, settings);
+            return await context.CreateManager().DisableAvailabilityZones(loadBalancer, zones, settings);
         }
     }
 }
