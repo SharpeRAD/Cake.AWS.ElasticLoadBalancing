@@ -47,6 +47,27 @@ namespace Cake.AWS.ElasticLoadBalancing
             return settings;
         }
 
+        /// <summary>
+        /// Specifies the AWS Session Token to use as credentials.
+        /// </summary>
+        /// <param name="settings">The LoadBalancing settings.</param>
+        /// <param name="token">The AWS Session Token.</param>
+        /// <returns>The same <see cref="LoadBalancingSettings"/> instance so that multiple calls can be chained.</returns>
+        public static LoadBalancingSettings SetSessionToken(this LoadBalancingSettings settings, string token)
+        {
+            if (settings == null)
+            {
+                throw new ArgumentNullException("settings");
+            }
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new ArgumentNullException("token");
+            }
+
+            settings.SessionToken = token;
+            return settings;
+        }
+
 
 
         /// <summary>

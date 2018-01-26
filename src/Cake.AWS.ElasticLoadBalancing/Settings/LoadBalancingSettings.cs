@@ -36,7 +36,12 @@ namespace Cake.AWS.ElasticLoadBalancing
         /// The AWS Secret Access Key.
         /// </summary>
         public string SecretKey { get; set; }
-                
+
+        /// <summary>
+        /// The AWS Session Token, if using temporary credentials.
+        /// </summary>
+        public string SessionToken { get; set; }
+
         internal AWSCredentials Credentials { get; set; }
 
 

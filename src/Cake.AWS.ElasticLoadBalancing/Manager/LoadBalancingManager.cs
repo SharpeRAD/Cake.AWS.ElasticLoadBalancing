@@ -85,7 +85,14 @@ namespace Cake.AWS.ElasticLoadBalancing
                     throw new ArgumentNullException("settings.SecretKey");
                 }
 
-                return new AmazonElasticLoadBalancingClient(settings.AccessKey, settings.SecretKey, settings.Region);
+                if (!String.IsNullOrEmpty(settings.SessionToken))
+                {
+                    return new AmazonElasticLoadBalancingClient(settings.AccessKey, settings.SecretKey, settings.SessionToken, settings.Region);
+                }
+                else
+                {
+                    return new AmazonElasticLoadBalancingClient(settings.AccessKey, settings.SecretKey, settings.Region);
+                }
             }
             else
             {
