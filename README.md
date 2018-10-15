@@ -32,6 +32,7 @@ Cake Build addin for configuring Amazon Elastic Load Balancers
 ## Referencing
 
 [![NuGet Version](http://img.shields.io/nuget/v/Cake.AWS.ElasticLoadBalancing.svg?style=flat)](https://www.nuget.org/packages/Cake.AWS.ElasticLoadBalancing/)
+[![NuGet Downloads](http://img.shields.io/nuget/dt/Cake.AWS.ElasticLoadBalancing.svg?style=flat)](https://www.nuget.org/packages/Cake.AWS.ElasticLoadBalancing/)
 
 Cake.AWS.ElasticLoadBalancing is available as a nuget package from the package manager console:
 
