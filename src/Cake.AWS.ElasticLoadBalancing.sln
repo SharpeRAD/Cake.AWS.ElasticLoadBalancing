@@ -15,6 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{409BC6DA
 		..\.gitignore = ..\.gitignore
 		..\appveyor.yml = ..\appveyor.yml
 		..\build.cake = ..\build.cake
+		..\cake.config = ..\cake.config
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{04DD68ED-2973-4B5E-964B-9FA607BB218D}"
@@ -29,9 +30,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget", "Nuget", "{3A8E8897
 		..\nuspec\Cake.AWS.ElasticLoadBalancing.nuspec = ..\nuspec\Cake.AWS.ElasticLoadBalancing.nuspec
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.AWS.ElasticLoadBalancing", "Cake.AWS.ElasticLoadBalancing\Cake.AWS.ElasticLoadBalancing.csproj", "{F73C55D5-41BD-47CB-9481-362177E0FA1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.AWS.ElasticLoadBalancing", "Cake.AWS.ElasticLoadBalancing\Cake.AWS.ElasticLoadBalancing.csproj", "{F73C55D5-41BD-47CB-9481-362177E0FA1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.AWS.ElasticLoadBalancing.Tests", "Cake.AWS.ElasticLoadBalancing.Tests\Cake.AWS.ElasticLoadBalancing.Tests.csproj", "{5D341AB1-6FF6-4F5F-8084-C190CF56841C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.AWS.ElasticLoadBalancing.Tests", "Cake.AWS.ElasticLoadBalancing.Tests\Cake.AWS.ElasticLoadBalancing.Tests.csproj", "{5D341AB1-6FF6-4F5F-8084-C190CF56841C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

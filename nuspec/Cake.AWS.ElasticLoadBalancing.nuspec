@@ -10,16 +10,15 @@
         <summary>Amazon ElasticLoadBalancing addon for cake build.</summary>
         <licenseUrl>https://github.com/SharpeRAD/Cake.AWS.ElasticLoadBalancing/LICENSE</licenseUrl>
         <projectUrl>https://github.com/SharpeRAD/Cake.AWS.ElasticLoadBalancing</projectUrl>
-        <iconUrl>https://cdn.rawgit.com/cake-contrib/graphics/a5cf0f881c390650144b2243ae551d5b9f836196/png/cake-contrib-medium.png</iconUrl>
+        <iconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics/png/cake-contrib-medium.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <copyright>Copyright (c) Phillip Sharpe 2015</copyright>
         <releaseNotes>Initial Release</releaseNotes>
         <tags>Cake Script Build Amazon ElasticLoadBalancing</tags>
 
         <dependencies>
-            <dependency id="Cake.Core" version="0.29.0" />
-            <dependency id="AWSSDK.Core" version="3.3.17.9" />
-            <dependency id="AWSSDK.ElasticLoadBalancing" version="3.3.1.3" />
+            <dependency id="AWSSDK.Core" version="3.3.101.2" />
+            <dependency id="AWSSDK.ElasticLoadBalancing" version="3.3.100.11" />
         </dependencies>
     </metadata>
 
